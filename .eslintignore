@@ -1,0 +1,7 @@
+node_modules
+logs
+dist
+jest.config.ts
+coverage
+src/**/__tests__/*.ts
+test
