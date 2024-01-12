@@ -48,6 +48,4 @@ async function partTwo() {
     .reduce((acc, row) => acc + countArrangements(row[0], row[1]), 0);
 }
 
-export default async function start() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

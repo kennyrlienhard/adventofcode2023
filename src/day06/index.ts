@@ -28,6 +28,4 @@ async function partTwo() {
   return getWaysToWin([combineNumbers(data, 0), combineNumbers(data, 1)]);
 }
 
-export default async function start() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

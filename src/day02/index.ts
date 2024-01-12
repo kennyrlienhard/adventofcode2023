@@ -46,6 +46,4 @@ async function partTwo() {
   return reducedGames.map((game) => Object.values(game).reduce((acc, val) => acc * val, 1)).reduce((acc, val) => acc + val, 0);
 }
 
-export default async function start() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

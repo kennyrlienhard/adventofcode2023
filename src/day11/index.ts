@@ -59,6 +59,4 @@ async function partTwo() {
   return getTotalDistance(1_000_000);
 }
 
-export default async function start() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

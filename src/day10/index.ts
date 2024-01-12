@@ -150,6 +150,4 @@ async function partTwo() {
   return area - boundaryPoints / 2 + 1;
 }
 
-export default async function start() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

@@ -40,6 +40,4 @@ async function partTwo() {
   return result.reduce((acc, line) => acc + line[0][0], 0);
 }
 
-export default async function start() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

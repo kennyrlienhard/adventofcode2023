@@ -29,6 +29,4 @@ async function partTwo() {
   return starts.map((position) => solve(position, ...data)).reduce(lcm);
 }
 
-export default async function start() {
-  return Promise.all([partOne, partTwo].map((puzzle) => puzzle()));
-}
+export default [partOne, partTwo];

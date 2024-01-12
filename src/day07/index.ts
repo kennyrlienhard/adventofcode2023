@@ -51,6 +51,4 @@ async function play(withJoker = false) {
   return ranks.reduce((acc, item, rank) => acc + (rank + 1) * item.bid, 0);
 }
 
-export default async function start() {
-  return Promise.all([() => play(), () => play(true)].map((puzzle) => puzzle()));
-}
+export default [() => play(), () => play(true)];
