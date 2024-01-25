@@ -11,10 +11,12 @@ import day10 from './day10';
 import day11 from './day11';
 import day12 from './day12';
 import day13 from './day13';
+import day14 from './day14';
+import day15 from './day15';
 
-const PUZZLES = [day01, day02, day03, day04, day05, day06, day07, day08, day09, day10, day11, day12, day13];
+const PUZZLES = [day01, day02, day03, day04, day05, day06, day07, day08, day09, day10, day11, day12, day13, day14, day15];
 
-const DAYS_TO_SOLVE = [13];
+const DAYS_TO_SOLVE = [15];
 
 function printResult(result: { day: number; part: number; start: Date; end: Date; value: number }) {
   console.log(`Day ${('0' + result.day).slice(-2)}. Part ${result.part}: ${result.value}`);
