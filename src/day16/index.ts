@@ -35,7 +35,7 @@ const MoveStraight = {
 function energize(startFrom: Beam, grid: string[][]) {
   let beams = [[...startFrom]];
 
-  const visited = new Map<string, number>();
+  const visited = new Set<string>();
   const handled = new Set<string>();
 
   while (beams.length > 0) {
@@ -46,7 +46,7 @@ function energize(startFrom: Beam, grid: string[][]) {
       const id = [beam[0], beam[1]].join(',');
       const tmpBeams = [];
 
-      if (!visited.has(id)) visited.set(id, 1);
+      visited.add(id);
       handled.add(beam.join(','));
 
       const tile = grid[beam[0]][beam[1]];
@@ -67,11 +67,11 @@ function energize(startFrom: Beam, grid: string[][]) {
         tmpBeams.push([beam[0] - 1, beam[1], Direction.Up], [beam[0] + 1, beam[1], Direction.Down]);
       }
 
-      const validBeams = tmpBeams
-        .filter(([x, y]) => x >= 0 && y >= 0 && x < grid.length && y < grid[0].length)
-        .filter((b) => !handled.has(b.join(',')));
-
-      nextBeams.push(...validBeams);
+      nextBeams.push(
+        ...tmpBeams.filter(
+          ([x, y, z]) => !handled.has([x, y, z].join(',')) && x >= 0 && y >= 0 && x < grid.length && y < grid[0].length
+        )
+      );
     }
 
     beams = [...nextBeams];
@@ -85,35 +85,24 @@ async function partOne() {
 }
 
 async function partTwo() {
-  let bestResult = 0;
-
   const grid = await loadData();
 
-  // top row (heading downward)
+  const startPositions = [] as Beam[];
+
   for (let i = 0; i < grid[0].length; i += 1) {
-    const result = energize([0, i, Direction.Down], grid);
-    if (result > bestResult) bestResult = result;
+    startPositions.push([0, i, Direction.Down]);
+    startPositions.push([grid.length - 1, i, Direction.Up]);
   }
 
-  // bottom row (heading upward)
-  for (let i = 0; i < grid[grid.length - 1].length; i += 1) {
-    const result = energize([grid.length - 1, i, Direction.Up], grid);
-    if (result > bestResult) bestResult = result;
-  }
-
-  // leftmost column (heading right)
   for (let i = 0; i < grid.length; i += 1) {
-    const result = energize([i, 0, Direction.Right], grid);
-    if (result > bestResult) bestResult = result;
+    startPositions.push([i, 0, Direction.Right]);
+    startPositions.push([i, grid[0].length - 1, Direction.Left]);
   }
 
-  // rightmost column (heading left)
-  for (let i = 0; i < grid.length; i += 1) {
-    const result = energize([i, grid[0].length - 1, Direction.Left], grid);
-    if (result > bestResult) bestResult = result;
-  }
-
-  return bestResult;
+  return startPositions.reduce((acc, pos) => {
+    const result = energize(pos, grid);
+    return result > acc ? result : acc;
+  }, 0);
 }
 
 export default [partOne, partTwo];
