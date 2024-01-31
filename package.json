@@ -32,7 +32,9 @@
       "@babel/preset-typescript"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "heap-js": "^2.3.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
