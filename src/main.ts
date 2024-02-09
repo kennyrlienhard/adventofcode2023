@@ -19,6 +19,7 @@ import day18 from './day18';
 import day19 from './day19';
 import day20 from './day20';
 import day21 from './day21';
+import day25 from './day25';
 
 const PUZZLES = [
   day01,
@@ -42,6 +43,10 @@ const PUZZLES = [
   day19,
   day20,
   day21,
+  null,
+  null,
+  null,
+  day25,
 ];
 
 const DAYS_TO_SOLVE = [PUZZLES.length];

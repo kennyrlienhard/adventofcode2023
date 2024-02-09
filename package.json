@@ -11,7 +11,7 @@
   "private": true,
   "main": "main.ts",
   "scripts": {
-    "build": "copyfiles package.json dist && copyfiles --up 1 src/emails/**/* dist && copyfiles --up 1 src/assets/**/* dist && copyfiles protos/* dist && tsc",
+    "build": "tsc",
     "lint": "eslint --ext .js,.ts .",
     "check-types": "tsc",
     "check-format": "yarn run prettier --list-different",
@@ -33,12 +33,14 @@
     ]
   },
   "dependencies": {
+    "cytoscape": "^3.28.1",
     "heap-js": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.20",
     "@babel/preset-env": "^7.22.20",
     "@babel/preset-typescript": "^7.22.15",
+    "@types/cytoscape": "^3.19.16",
     "@types/node": "^18.17.18",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
