@@ -2,7 +2,7 @@ import cytoscape from 'cytoscape';
 
 import { loadData } from './utils';
 
-async function partOneWithGraph() {
+async function partOne() {
   const data = await loadData();
 
   const graph = cytoscape();
@@ -17,4 +17,4 @@ async function partOneWithGraph() {
   return result.partition1.length * result.partition2.length;
 }
 
-export default [partOneWithGraph];
+export default [partOne];
