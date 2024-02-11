@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "cytoscape": "^3.28.1",
-    "heap-js": "^2.3.0"
+    "heap-js": "^2.3.0",
+    "z3-solver": "^4.12.5"
   },
   "devDependencies": {
     "@babel/core": "^7.22.20",
