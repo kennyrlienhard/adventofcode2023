@@ -19,6 +19,7 @@ import day18 from './day18';
 import day19 from './day19';
 import day20 from './day20';
 import day21 from './day21';
+import day23 from './day23';
 import day24 from './day24';
 import day25 from './day25';
 
@@ -45,16 +46,16 @@ const PUZZLES = [
   day20,
   day21,
   null,
-  null,
+  day23,
   day24,
   day25,
 ];
 
-const DAYS_TO_SOLVE = [24];
+const DAYS_TO_SOLVE = [23];
 
 function printResult(result: { day: number; part: number; start: Date; end: Date; value: number }) {
   console.log(`Day ${('0' + result.day).slice(-2)}. Part ${result.part}: ${result.value}`);
-  console.log(`Exucted in ${(result.end.getTime() - result.start.getTime()) / 1000}s`);
+  console.log(`Executed in ${(result.end.getTime() - result.start.getTime()) / 1000}s`);
   console.log();
 }
 
