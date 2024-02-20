@@ -52,7 +52,7 @@ const PUZZLES = [
   day25,
 ];
 
-const DAYS_TO_SOLVE = [22];
+const DAYS_TO_SOLVE = [25];
 
 function printResult(result: { day: number; part: number; start: Date; end: Date; value: number }) {
   console.log(`Day ${('0' + result.day).slice(-2)}. Part ${result.part}: ${result.value}`);
