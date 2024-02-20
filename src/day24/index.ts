@@ -97,19 +97,6 @@ async function partTwo() {
   const model = solver.model();
 
   return [model.eval(x), model.eval(y), model.eval(z)].map(Number).reduce((acc, val) => acc + val, 0);
-
-  // const points = await loadData(false);
-
-  // const equations = [];
-
-  // for (let i = 0; i < 3; i += 1) {
-  //   const p = points[i];
-
-  //   equations.push(`(xr - ${p.x}) * (${p.vy} - vyr) - (yr - ${p.y}) * (${p.vx} - vxr)`);
-  //   equations.push(`(yr - ${p.y}) * (${p.vz} - vzr) - (zr - ${p.z}) * (${p.vy} - vyr)`);
-  // }
-
-  // const n = (nerdamer as any).solveEquations(equations);
 }
 
 export default [partOne, partTwo];
